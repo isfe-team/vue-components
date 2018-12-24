@@ -10,7 +10,14 @@
     "lint": "eslint --ext .js,.vue components",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "node ./build/prebuildDoc && vuepress dev docs",
-    "docs:build": "node ./build/prebuildDoc && vuepress build docs"
+    "docs:build": "node ./build/prebuildDoc && vuepress build docs",
+    "commit:prev": "commitizen init cz-conventional-changelog --save --save-exact --force"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm lint",
+      "commit-message": "echo $HUSKY_GIT_PARAMS && commitlint -E $HUSKY_GIT_PARAMS"
+    }
   },
   "repository": {
     "type": "git",
@@ -25,6 +32,9 @@
   "homepage": "https://github.com/isfe-team/vue-components#readme",
   "devDependencies": {
     "chalk": "^2.4.1",
+    "commitizen": "^3.0.5",
+    "commitlint": "^7.2.1",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.11.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -32,6 +42,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^1.2.1",
     "vuepress": "^0.14.8"
   },
   "peerDependencies": {
@@ -40,5 +51,10 @@
   },
   "dependencies": {
     "html2canvas": "^1.0.0-alpha.12"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

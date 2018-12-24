@@ -11,4 +11,4 @@ Waiting...
 - [ ] publish
 - [ ] linter
 - [ ] tests
-- [ ] `README.md` 直接在 `docs:x` scripts 之前 move 到 `docs` 中
+- [x] `README.md` 直接在 `docs:x` scripts 之前 move 到 `docs` 中
