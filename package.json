@@ -11,11 +11,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "node ./build/prebuildDoc && vuepress dev docs",
     "docs:build": "node ./build/prebuildDoc && vuepress build docs",
-    "commit:prev": "commitizen init cz-conventional-changelog --save --save-exact --force"
+    "commit:prev": "commitizen init cz-conventional-changelog --save --save-exact --force",
+    "commit": "git-cz"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm lint",
+      "pre-commit": "npm run lint",
       "commit-message": "echo $HUSKY_GIT_PARAMS && commitlint -E $HUSKY_GIT_PARAMS"
     }
   },
