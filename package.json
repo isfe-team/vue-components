@@ -20,6 +20,14 @@
       "commit-message": "commitlint -E $HUSKY_GIT_PARAMS"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/isfe-team/vue-components.git"
@@ -52,10 +60,5 @@
   },
   "dependencies": {
     "html2canvas": "^1.0.0-alpha.12"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
