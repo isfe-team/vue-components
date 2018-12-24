@@ -1,7 +1,13 @@
 <template>
-  <div class="capture" :class="{ capturing }" @click="capture">
+  <div
+    class="capture"
+    :class="{ capturing }"
+    @click="capture"
+  >
     <slot>
-      <a href="javascript: void 0">点击截屏</a>
+      <a href="javascript: void 0">
+        点击截屏
+      </a>
     </slot>
   </div>
 </template>
@@ -48,11 +54,6 @@ const removeDOM = ($el) => {
 
 export default {
   name: 'ScreenCapture',
-  data () {
-    return {
-      capturing: false
-    }
-  },
   props: {
     zIndex: {
       type: Number,
@@ -71,6 +72,11 @@ export default {
     boxClassName: {
       type: String,
       default: 'capture-selecting-box'
+    }
+  },
+  data () {
+    return {
+      capturing: false
     }
   },
   methods: {

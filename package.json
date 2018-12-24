@@ -1,15 +1,16 @@
 {
-  "name": "vue-components",
-  "version": "1.0.0",
+  "name": "@isfe/vue-components",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
+    "lint": "eslint --ext .js,.vue components",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "node ./build/prebuildDoc && vuepress dev docs",
+    "docs:build": "node ./build/prebuildDoc && vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,14 @@
   },
   "homepage": "https://github.com/isfe-team/vue-components#readme",
   "devDependencies": {
+    "chalk": "^2.4.1",
+    "eslint": "^5.11.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0",
     "vuepress": "^0.14.8"
   },
   "peerDependencies": {
