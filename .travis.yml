@@ -24,6 +24,11 @@ deploy:
   on:
     branch: master
 
+deploy:
+  provider: npm
+  email: bqliu@iflytek.com
+  api_key: $NPM_TOKEN
+
 notifications:
   email:
     recipients:
