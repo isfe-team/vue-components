@@ -1,6 +1,6 @@
 # Screen Capture
 
-一个简单的基于 `html2canvas` 的截屏组件。
+一个简单的基于 `html2canvas` 的截屏组件，注意**只能截取一屏幕，暂时不支持多屏**，多屏有一些奇怪的问题。
 
 ## How
 

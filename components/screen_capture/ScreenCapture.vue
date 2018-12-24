@@ -10,17 +10,17 @@
 import html2canvas from 'html2canvas'
 
 const BgCanvasStyleMap = {
-  position: 'absolute',
+  position: 'fixed',
   top: '0',
   right: '0',
   bottom: '0',
   left: '0',
   zIndex: '',
+  opacity: '0',
   overflow: 'hidden'
 }
 
 const RangeBoxStyleMap = {
-  // use absolute rather than fixed
   position: 'fixed',
   border: '1px dashed red',
   width: '0',
@@ -48,7 +48,7 @@ const removeDOM = ($el) => {
 
 export default {
   name: 'ScreenCapture',
-  data() {
+  data () {
     return {
       capturing: false
     }
@@ -117,8 +117,9 @@ export default {
           isSelectingArea = true
           // 注意这里的 scrollTop 应该是哪个元素的 scrollTop，比入说可能为：`document.documentElement.scrollTop`
           // scrollLeft 也是如此
-          const scrollTop = this.rangeDOM.scrollTop
-          const scrollLeft = this.rangeDOM.scrollLeft
+          // scrollLeft 和 scrollTop 应该都不能用，直接让 rangeDOM 不可滚动，只能截取当前屏幕内容
+          const scrollTop = 0 // this.rangeDOM.scrollTop
+          const scrollLeft = 0 // this.rangeDOM.scrollLeft
           boxRange.marginLeft = boxRange.startX = evt.clientX + scrollLeft
           boxRange.marginTop = boxRange.startY = evt.clientY + scrollTop
           $box = document.createElement('div')
@@ -138,8 +139,8 @@ export default {
         if (!isSelectingArea) {
           return
         }
-        const scrollTop = this.rangeDOM.scrollTop
-        const scrollLeft = this.rangeDOM.scrollLeft
+        const scrollTop = 0 // this.rangeDOM.scrollTop
+        const scrollLeft = 0 // this.rangeDOM.scrollLeft
         boxRange.marginLeft = (boxRange.startX - evt.clientX - scrollLeft > 0 ? (evt.clientX + scrollLeft) : boxRange.startX) + 'px'
         boxRange.marginTop = (boxRange.startY - evt.clientY - scrollTop > 0 ? (evt.clientY + scrollTop) : boxRange.startY) + 'px'
         boxRange.width = Math.abs(boxRange.startX - evt.clientX - scrollLeft) + 'px'
@@ -196,6 +197,10 @@ export default {
         })
       }
 
+      // 让 html 不能滚动，暂时不支持可滚动的
+      let prevOverflow = getComputedStyle(document.documentElement).overflow
+      document.documentElement.style.overflow = 'hidden'
+
       const dispose = () => {
         if ($bgCanvas) {
           $bgCanvas.width = 0
@@ -212,10 +217,21 @@ export default {
         evtTypesWithHandler.forEach(([type, handler]) => {
           document.removeEventListener(type, handler)
         })
+
+        document.documentElement.style.overflow = prevOverflow
       }
 
       this.$emit('init-capture')
-      html2canvas(this.rangeDOM, { useCORS: true }).then((canvas) => {
+      html2canvas(this.rangeDOM, {
+        useCORS: true,
+        allowTaint: true,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        scrollX: window.pageXOffset,
+        scrollY: window.pageYOffset,
+        x: window.pageXOffset,
+        y: window.pageYOffset
+      }).then((canvas) => {
         this.$emit('can-capture')
         $bgCanvas = canvas
         this.decorateBgCanvas($bgCanvas)
