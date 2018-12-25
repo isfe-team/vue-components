@@ -1,7 +1,9 @@
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
-[![](/travis/com/isfe-team/vue-components.svg)](https://travis-ci.com/isfe-team/vue-components)
-[![](/github/license/isfe-team/vue-components.svg)](https://opensource.org/licenses/MIT)
-[![](/npm/v/@isfe/vue-components.svg)](https://www.npmjs.com/package/@isfe/vue-components)
+<p align="center">
+  [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+  [![](https://img.shields.io/travis/com/isfe-team/vue-components.svg)](https://travis-ci.com/isfe-team/vue-components)
+  [![](https://img.shields.io/github/license/isfe-team/vue-components.svg)](https://opensource.org/licenses/MIT)
+  [![](https://img.shields.io/npm/dm/@isfe/vue-components.svg)](https://npmcharts.com/compare/@isfe/vue-components?minimal=true&interval=30)
+</p>
 
 # Vue Components
 
