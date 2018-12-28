@@ -1,5 +1,3 @@
-import ScreenCapturePresenter from './screen_capture/ScreenCapturePresenter'
+export default function noop () {
 
-export default function install (Vue) {
-  Vue.component(ScreenCapturePresenter.name, ScreenCapturePresenter)
 }

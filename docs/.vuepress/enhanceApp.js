@@ -1,5 +1,5 @@
 import registerComponents from '../../components'
-import registerPresenters from './components'
+import registerPresenters from '../components'
 
 export default (({ Vue }) => {
   registerComponents(Vue)

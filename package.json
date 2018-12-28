@@ -59,6 +59,7 @@
     "vue": "^2.5.17"
   },
   "dependencies": {
+    "add-dom-event-listener": "^1.1.0",
     "html2canvas": "^1.0.0-alpha.12"
   }
 }
