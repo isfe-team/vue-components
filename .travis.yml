@@ -12,6 +12,7 @@ cache: npm
 
 script:
   - npm run lint
+  - npm run test
   - npm run docs:build
 
 before_deploy: "echo 'deploying...'"

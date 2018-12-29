@@ -2,6 +2,7 @@
 node_modules/
 /dist/
 /docs/.vuepress/dist/
+/__coverage__
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

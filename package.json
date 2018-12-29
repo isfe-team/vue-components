@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "eslint --ext .js,.vue components",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "docs:dev": "node ./build/prebuildDoc && vuepress dev docs",
     "docs:build": "node ./build/prebuildDoc && vuepress build docs",
     "commit:prev": "commitizen init cz-conventional-changelog --save --save-exact --force",
@@ -40,6 +40,11 @@
   },
   "homepage": "https://github.com/isfe-team/vue-components#readme",
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-istanbul": "^5.1.0",
+    "babel-preset-env": "^1.7.0",
     "chalk": "^2.4.1",
     "commitizen": "^3.0.5",
     "commitlint": "^7.2.1",
@@ -52,6 +57,10 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^1.2.1",
+    "jest": "^23.6.0",
+    "jest-serializer-vue": "^2.0.2",
+    "vue-jest": "^3.0.2",
+    "vue-template-compiler": "^2.5.21",
     "vuepress": "^0.14.8"
   },
   "peerDependencies": {
