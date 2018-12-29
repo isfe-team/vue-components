@@ -3,8 +3,6 @@
  * bqliu
  */
 
-/* istanbul next */
-
 import addDomEventListener from 'add-dom-event-listener'
 
 /**
