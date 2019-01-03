@@ -11,12 +11,16 @@ cache:
   paths:
     - node_modules/
 
+# 暂时只配置 build stage
+stages:
+  - build
+
 build:
+  stage: build
   script:
     - npm i
     - npm run lint
     - npm run test
     - npm run docs:build
   only:
-    refs:
-      - master
+    - master
