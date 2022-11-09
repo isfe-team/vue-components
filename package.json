@@ -63,7 +63,7 @@
     "jest-serializer-vue": "^2.0.2",
     "vue-jest": "^3.0.2",
     "vue-template-compiler": "^2.5.21",
-    "vuepress": "^0.14.8"
+    "vuepress": "^1.9.7"
   },
   "peerDependencies": {
     "html2canvas": "^1.0.0-alpha.12",
